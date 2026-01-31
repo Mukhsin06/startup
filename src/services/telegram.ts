@@ -1,8 +1,8 @@
 import { SubmissionPayload } from '../types';
 import * as XLSX from 'xlsx';
 
-const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || '8299271199:AAHORq-fbX7OpdUzc2nCVpXohGv47qt-YfQ';
-const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID || '-1003251233811';
+const botToken = '8299271199:AAHORq-fbX7OpdUzc2nCVpXohGv47qt-YfQ';
+const chatId = '-1003251233811';
 
 if (!botToken || !chatId) {
   console.error('Missing Telegram credentials');
