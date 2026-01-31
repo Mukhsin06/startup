@@ -1,17 +1,12 @@
 import { SubmissionPayload } from '../types';
 import * as XLSX from 'xlsx';
 
-const getEnv = (key: string) => {
-  const value = import.meta.env[key as keyof ImportMetaEnv] as string | undefined;
-  if (!value) {
-    console.error(`Missing env ${key}`);
-    throw new Error(`Missing env ${key}`);
-  }
-  return value;
-};
+const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN || '8299271199:AAHORq-fbX7OpdUzc2nCVpXohGv47qt-YfQ';
+const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID || '-1003251233811';
 
-const botToken = getEnv('VITE_TELEGRAM_BOT_TOKEN');
-const chatId = getEnv('VITE_TELEGRAM_CHAT_ID');
+if (!botToken || !chatId) {
+  console.error('Missing Telegram credentials');
+}
 
 const telegramApi = (method: string) => `https://api.telegram.org/bot${botToken}/${method}`;
 
